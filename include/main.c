@@ -1,8 +1,10 @@
-#include <stdio.h>
+#include "tudojunto.h"
 
 int main(){
-    int resposta = 1;
+    int resposta;
     do{
-        
+        lista_p personagens = menu(&resposta);
+        if(resposta)partida(personagens);
     }while(resposta);
+    return 0;
 }
