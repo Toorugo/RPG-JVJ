@@ -1,6 +1,7 @@
 # include <stdio.h>
 # include "personagens.h"
 # include <stdlib.h>
+# include <stdbool.h>
 
 Personagem criar_personagem(char* nome, int nivel, int dado){
     Personagem p;
