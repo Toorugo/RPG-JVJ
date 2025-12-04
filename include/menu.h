@@ -1,10 +1,11 @@
 #ifndef MENU_H
 #define MENU_H
 
+#include "lista.h"
 #include "personagens.h"
 #include "impressao.h"
 
-lista_p menu(int* );
-lista_p leitor_arquivo(char* );
+Lista menu();
+void leitor_arquivo(char* );
 
 #endif

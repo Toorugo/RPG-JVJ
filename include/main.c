@@ -3,8 +3,8 @@
 int main(){
     int resposta;
     do{
-        lista_p personagens = menu(&resposta);
-        if(resposta)partida(personagens);
+        Lista personagens = menu();
+        if(resposta)partida(personagens, &resposta);
     }while(resposta);
     return 0;
 }

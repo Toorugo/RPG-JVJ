@@ -24,9 +24,8 @@ Personagem criar_personagem(char* nome, int nivel, int dado){
     return p;
 }
 
-int calcular_iniciativa(Personagem* p){
-    p->iniciativa = p-nivel + (rand() % p->dado) + 1;
-    return p->iniciativa;
+void calcular_iniciativa(Personagem* p){
+    p->iniciativa = p->nivel + (rand() % p->dado) + 1;
 }
 
 bool verificar_dado(int dado){
