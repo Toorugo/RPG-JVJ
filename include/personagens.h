@@ -20,4 +20,6 @@ void calcular_iniciativas(Lista*);
 
 bool verificar_dado(int);
 
+void liberar_personagem(Personagem*);
+
 #endif

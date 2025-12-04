@@ -54,3 +54,17 @@ bool verificar_dado(int dado){
             return false;
     }
 }
+
+void liberar_personagem(Personagem* p){
+    if (p) {
+        free(p->nome);
+        free(p);
+    }
+}
+
+void liberar_lista(Lista* lista) {
+    if (lista) {
+        free(lista->personagens);
+        free(lista);
+    }
+}
