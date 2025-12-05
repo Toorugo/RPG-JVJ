@@ -58,7 +58,7 @@ Lista* criar_bonecos(){
 Lista* menu(int* resposta){
     me tela = cria_menu();
     while(true){
-        mostrar(tela.tela, 20);
+        mostrar(tela.tela, 9);
 
         char entrada = getch();
 
