@@ -3,17 +3,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-// ================================
-// Inicializar lista
-// ================================
+
 void inicializarLista(Lista *l) {
     l->vet = NULL;
     l->tamanho = 0;
 }
 
-// ================================
-// Adicionar personagem (realoca vetor)
-// ================================
 bool adicionarPersonagem(Lista *l, Personagem p) {
     Personagem *novo = realloc(l->vet, (l->tamanho + 1) * sizeof(Personagem));
     if (!novo) return false;
@@ -24,9 +19,6 @@ bool adicionarPersonagem(Lista *l, Personagem p) {
     return true;
 }
 
-// ================================
-// Remover personagem por índice
-// ================================
 bool removerPersonagem(Lista *l, int indice) {
     if (indice < 0 || indice >= l->tamanho) return false;
 
@@ -45,18 +37,14 @@ bool removerPersonagem(Lista *l, int indice) {
     return true;
 }
 
-// ================================
-// Recalcular iniciativas
-// ================================
+
 void recalcularIniciativas(Lista *l) {
     for (int i = 0; i < l->tamanho; i++) {
         l->vet[i].iniciativa = l->vet[i].nivel + l->vet[i].dado;
     }
 }
 
-// ================================
-// Merge Sort
-// ================================
+
 static void merge(Personagem v[], int inicio, int meio, int fim) {
     int tam1 = meio - inicio + 1;
     int tam2 = fim - meio;
@@ -92,9 +80,6 @@ static void mergeSort(Personagem v[], int inicio, int fim) {
     merge(v, inicio, meio, fim);
 }
 
-// ================================
-// Bubble Sort
-// ================================
 static void bubbleSort(Personagem v[], int tamanho) {
     for (int i = 0; i < tamanho - 1; i++) {
         for (int j = 0; j < tamanho - i - 1; j++) {
@@ -107,9 +92,6 @@ static void bubbleSort(Personagem v[], int tamanho) {
     }
 }
 
-// ================================
-// Ordenar por iniciativa
-// ================================
 void ordenarPorIniciativa(Lista *l, int metodo) {
     if (l->tamanho <= 1) return;
 
@@ -119,9 +101,6 @@ void ordenarPorIniciativa(Lista *l, int metodo) {
         bubbleSort(l->vet, l->tamanho);
 }
 
-// ================================
-// Exibir lista
-// ================================
 void exibirLista(const Lista *l) {
     printf("---- Lista de Personagens ----\n");
     for (int i = 0; i < l->tamanho; i++) {
@@ -131,9 +110,6 @@ void exibirLista(const Lista *l) {
     }
 }
 
-// ================================
-// Destruir lista
-// ================================
 void destruirLista(Lista *l) {
     free(l->vet);
     l->vet = NULL;
