@@ -64,3 +64,11 @@ void mostra_partida(Lista* p){
     for(int l=0; l<largura; l++) printf(VERMELHO"@");
     puts("");
 }
+
+void destroi_menu(char** menu){
+    for (int i = 0; i < altura; i++) {
+        free(menu[i]);
+    }
+    free(menu);
+    menu = NULL;
+}

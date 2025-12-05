@@ -12,5 +12,6 @@ typedef struct _menu{
 void mostrar(char** m , int a);
 me cria_menu();
 void mostra_partida(Lista* p );
+void destroi_menu(char** menu);
 
 #endif

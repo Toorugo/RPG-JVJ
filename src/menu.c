@@ -78,8 +78,12 @@ Lista* menu(int* resposta){
 
         else if(entrada == 'c' || entrada == 'C'){
 
-            if(tela.y==7) return criar_bonecos();
+            if(tela.y==7){
+                destroi_menu(tela.tela); 
+                return criar_bonecos();
+            }
             else {
+                destroi_menu(tela.tela);
                 *resposta = 0;
                 return NULL;
             }
