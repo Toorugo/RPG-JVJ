@@ -7,11 +7,11 @@
 #include <string.h>
 
 Lista* leitor_arquivo(char* caminho) {
-    Lista* lista;
+    Lista* lista = (Lista*) malloc(sizeof(Lista));
     FILE* arquivo = fopen(caminho, "r");
     if (!arquivo) {
         perror("Erro ao abrir arquivo");
-        return;
+        return NULL;
     }
 
     char linha[1024];
@@ -26,11 +26,11 @@ Lista* leitor_arquivo(char* caminho) {
 
 
             char* nome = strtok(personagem, ",");
-            char* nivel = strtok(NULL, ",");
-            char* dado = strtok(NULL, ",");
+            char* str_nivel = strtok(NULL, ",");
+            char* str_dado = strtok(NULL, ",");
 
-            int nivel = atoi(nivel);
-            int dado = atoi(dado);
+            int nivel = atoi(str_nivel);
+            int dado = atoi(str_dado);
 
             Personagem* p = criar_personagem(nome, nivel, dado);
             if (p != NULL) {
@@ -49,30 +49,30 @@ Lista* leitor_arquivo(char* caminho) {
 Lista* criar_bonecos(){
     system("clear");
     puts("Digite o endereço do arquivo .txt com os personagens");
-    char* endereco;
-    scanf("%s", &endereco);
+    char endereco[100];
+    scanf("%99s", endereco);
     return leitor_arquivo(endereco);
 }
 
 Lista* menu(int* resposta){
     me tela = cria_menu();
     while(true){
-        mostra(tela.tela, 20);
+        mostrar(tela.tela, 20);
 
         char entrada = getch();
 
-        if(entrada == "m" || entrada== "M"){
+        if(entrada == 'm' || entrada== 'M'){
 
             if(tela.y == 7) tela.y = tela.y+3;
             else tela.y = tela.y-3;
         }
 
-        else if(entrada == "c" || entrada == "C"){
+        else if(entrada == 'c' || entrada == 'C'){
 
             if(tela.y==7) return criar_bonecos();
             else {
                 *resposta = 0;
-                return;
+                return NULL;
             }
         }
     }

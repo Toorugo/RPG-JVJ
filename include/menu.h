@@ -6,6 +6,6 @@
 #include "impressao.h"
 
 Lista* menu(int* );
-void leitor_arquivo(char*);
+Lista* leitor_arquivo(char* caminho);
 
 #endif
