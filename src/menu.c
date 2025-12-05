@@ -65,14 +65,14 @@ Lista* menu(int* resposta){
         if(entrada == 'm' || entrada== 'M'){
 
             if(tela.y == 2) {
-                tela.tela[tela.y][8] = " ";
+                tela.tela[tela.y][8] = ' ';
                 tela.y = tela.y+3;
-                tela.tela[tela.y][8] = ">";
+                tela.tela[tela.y][8] = '>';
             }
             else{
-                tela.tela[tela.y][8] = " ";
+                tela.tela[tela.y][8] = ' ';
                 tela.y = tela.y-3;
-                tela.tela[tela.y][8] = ">";
+                tela.tela[tela.y][8] = '>';
             }
         }
 
