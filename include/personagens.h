@@ -16,8 +16,6 @@ typedef struct {
 
 Personagem* criar_personagem(char*, int, int);
 
-void calcular_iniciativas(Lista*);
-
 bool verificar_dado(int);
 
 void liberar_personagem(Personagem*);
