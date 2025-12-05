@@ -4,7 +4,7 @@
 
 typedef struct _personagem{
     int nivel;
-    char* nome;
+    char nome[50];
     int dado;
     int iniciativa;
 } Personagem;

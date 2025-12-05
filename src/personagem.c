@@ -14,31 +14,21 @@ Personagem* criar_personagem(char* nome, int nivel, int dado){
         printf("Dado inválido (Deve ser 4, 6, 8, 10, 12 ou 20)\n");
         return NULL;
     }
-    Personagem* p = (Personagem*) malloc (sizeof(Personagem));
+
+    Personagem* p = malloc(sizeof(Personagem));
     if (!p){
         printf("Erro ao alocar memória para o personagem\n");
         return NULL;
     }
+
     p->nivel = nivel;
     p->dado = dado;
     p->iniciativa = nivel + dado;
-    p->nome = malloc(strlen(nome) + 1);
-    if (!p->nome){
-        printf("Erro ao alocar memória para o nome do personagem\n");
-        free(p);
-        return NULL;
-    }
-    strcpy(p->nome, nome);
+
+    strncpy(p->nome, nome, sizeof(p->nome) - 1);
+    p->nome[sizeof(p->nome) - 1] = '\0';
 
     return p;
-}
-
-void calcular_iniciativas(Lista* pont){
-    if (pont->tamanho == 0) return;
-    if(!pont || !pont->personagens) return;
-    for (int i = 0; i < pont->tamanho; i++){
-        pont->personagens[i].iniciativa= pont->personagens[i].nivel + (rand() % pont->personagens[i].dado) + 1;
-    }
 }
 
 bool verificar_dado(int dado){
