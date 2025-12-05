@@ -24,7 +24,7 @@ void leitor_arquivo(char* caminho, Lista* lista) {
             while (*personagem == ' ') personagem++;
 
 
-            char* nome = strtok(conjunto, ",");
+            char* nome = strtok(personagem, ",");
             char* nivel = strtok(NULL, ",");
             char* dado = strtok(NULL, ",");
 
@@ -37,7 +37,7 @@ void leitor_arquivo(char* caminho, Lista* lista) {
                 free(p);
             }
 
-            conjunto = strtok(NULL, ";");
+            personagem = strtok(NULL, ";");
         }
     }
 
