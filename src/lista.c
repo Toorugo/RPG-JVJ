@@ -9,22 +9,21 @@ void inicializarLista(Lista *l) {
     l->tamanho = 0;
 }
 
+
 bool adicionarPersonagem(Lista *l, Personagem p) {
     Personagem *novo = realloc(l->vet, (l->tamanho + 1) * sizeof(Personagem));
     if (!novo) return false;
-
     l->vet = novo;
-    l->vet[l->tamanho] = p;
-    l->tamanho++;
+    l->vet[l->tamanho++] = p;
     return true;
 }
+
 
 bool removerPersonagem(Lista *l, int indice) {
     if (indice < 0 || indice >= l->tamanho) return false;
 
-    for (int i = indice; i < l->tamanho - 1; i++) {
+    for (int i = indice; i < l->tamanho - 1; i++)
         l->vet[i] = l->vet[i + 1];
-    }
 
     l->tamanho--;
     if (l->tamanho == 0) {
@@ -33,15 +32,12 @@ bool removerPersonagem(Lista *l, int indice) {
     } else {
         l->vet = realloc(l->vet, l->tamanho * sizeof(Personagem));
     }
-
     return true;
 }
 
-
 void recalcularIniciativas(Lista *l) {
-    for (int i = 0; i < l->tamanho; i++) {
+    for (int i = 0; i < l->tamanho; i++)
         l->vet[i].iniciativa = l->vet[i].nivel + l->vet[i].dado;
-    }
 }
 
 
@@ -80,26 +76,31 @@ static void mergeSort(Personagem v[], int inicio, int fim) {
     merge(v, inicio, meio, fim);
 }
 
-static void bubbleSort(Personagem v[], int tamanho) {
-    for (int i = 0; i < tamanho - 1; i++) {
-        for (int j = 0; j < tamanho - i - 1; j++) {
-            if (v[j].iniciativa < v[j + 1].iniciativa) {
-                Personagem tmp = v[j];
-                v[j] = v[j + 1];
-                v[j + 1] = tmp;
-            }
+static void insertionSort(Personagem v[], int n) {
+    for (int i = 1; i < n; i++) {
+        Personagem chave = v[i];
+        int j = i - 1;
+        while (j >= 0 && v[j].iniciativa < chave.iniciativa) {
+            v[j + 1] = v[j];
+            j--;
         }
+        v[j + 1] = chave;
     }
 }
 
-void ordenarPorIniciativa(Lista *l, int metodo) {
+void ordenarPorIniciativa(Lista *l) {
     if (l->tamanho <= 1) return;
 
-    if (metodo == 1)
+
+    const int LIMITE = 10;
+
+    if (l->tamanho <= LIMITE) {
+        insertionSort(l->vet, l->tamanho);
+    } else {
         mergeSort(l->vet, 0, l->tamanho - 1);
-    else
-        bubbleSort(l->vet, l->tamanho);
+    }
 }
+
 
 void exibirLista(const Lista *l) {
     printf("---- Lista de Personagens ----\n");
@@ -109,6 +110,7 @@ void exibirLista(const Lista *l) {
                l->vet[i].dado, l->vet[i].iniciativa);
     }
 }
+
 
 void destruirLista(Lista *l) {
     free(l->vet);
