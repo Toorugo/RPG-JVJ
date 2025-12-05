@@ -9,10 +9,6 @@ typedef struct _personagem{
     int iniciativa;
 } Personagem;
 
-typedef struct {
-    Personagem* personagens;
-    int tamanho;
-} Lista;
 
 Personagem* criar_personagem(char*, int, int);
 
