@@ -5,6 +5,6 @@
 #include "personagens.h"
 #include "impressao.h"
 
-void partida(Lista, int*);
+void partida(Lista*, int*);
 
 #endif
