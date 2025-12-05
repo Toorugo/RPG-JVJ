@@ -55,9 +55,9 @@ me cria_menu(){
 
 void mostra_partida(Lista* p){
     for(int l=0; l<largura; l++) printf(VERMELHO"@");
-
+    printf("\n");
     for(int a=0; a<p->tamanho; a++){
-        printf(AZUL"&  %s - nivel:%i - dado:%i - iniciativa:%i", p->vet[a].nome, p->vet[a].nivel, p->vet[a].dado, p->vet[a].iniciativa);
+        printf(AZUL"&  %s - nivel:%i - dado:%i - iniciativa:%i\n", p->vet[a].nome, p->vet[a].nivel, p->vet[a].dado, p->vet[a].iniciativa);
     }
 
     for(int l=0; l<largura; l++) printf(VERMELHO"@");

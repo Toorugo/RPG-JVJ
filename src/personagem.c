@@ -2,6 +2,8 @@
 # include "personagens.h"
 # include <stdlib.h>
 # include <stdbool.h>
+# include <string.h>
+# include "lista.h"
 
 Personagem* criar_personagem(char* nome, int nivel, int dado){
 
@@ -47,14 +49,13 @@ bool verificar_dado(int dado){
 
 void liberar_personagem(Personagem* p){
     if (p) {
-        free(p->nome);
         free(p);
     }
 }
 
 void liberar_lista(Lista* lista) {
     if (lista) {
-        free(lista->personagens);
+        free(lista->vet);
         free(lista);
     }
 }

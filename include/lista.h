@@ -13,8 +13,8 @@ bool adicionarPersonagem(Lista *l, Personagem p);
 bool removerPersonagem(Lista *l, int indice);
 void recalcularIniciativas(Lista *l);
 
-void mergeSort(Personagem v[], int inicio, int fim);
-void insertionSort(Personagem v[], int n);
+static void mergeSort(Personagem v[], int inicio, int fim);
+static void insertionSort(Personagem v[], int n);
 void ordenarPorIniciativa(Lista *l);
 
 void destruirLista(Lista *l);

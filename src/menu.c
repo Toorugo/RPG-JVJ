@@ -5,12 +5,13 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+# include "utils.h"
 
 Lista* leitor_arquivo(char* caminho) {
     Lista* lista = (Lista*) malloc(sizeof(Lista));
     FILE* arquivo = fopen(caminho, "r");
     if (!arquivo) {
-        perror("Erro ao abrir arquivo");
+        perror("Erro ao abrir arquivo\n");
         return NULL;
     }
 

@@ -36,8 +36,10 @@ bool removerPersonagem(Lista *l, int indice) {
 }
 
 void recalcularIniciativas(Lista *l) {
-    for (int i = 0; i < l->tamanho; i++)
-        l->vet[i].iniciativa = l->vet[i].nivel + l->vet[i].dado;
+    for (int i = 0; i < l->tamanho; i++){
+        int rolagem = rand() % l->vet[i].dado + 1;
+        l->vet[i].iniciativa = l->vet[i].nivel + rolagem;
+    }
 }
 
 
