@@ -9,15 +9,14 @@ typedef struct {
 } Lista;
 
 void inicializarLista(Lista *l);
-void adicionarPersonagem(Lista *l, Personagem p);
-void removerPersonagem(Lista *l, int indice);
+bool adicionarPersonagem(Lista *l, Personagem p);
+bool removerPersonagem(Lista *l, int indice);
 void recalcularIniciativas(Lista *l);
 
 void mergeSort(Personagem v[], int inicio, int fim);
-void quickSort(Personagem v[], int inicio, int fim);
-void ordenarPorIniciativa(Lista *l, int metodo);
+void insertionSort(Personagem v[], int n);
+void ordenarPorIniciativa(Lista *l);
 
-void exibirLista(Lista *l);
 void destruirLista(Lista *l);
 
 #endif

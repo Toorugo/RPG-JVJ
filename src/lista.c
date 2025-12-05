@@ -102,16 +102,6 @@ void ordenarPorIniciativa(Lista *l) {
 }
 
 
-void exibirLista(const Lista *l) {
-    printf("---- Lista de Personagens ----\n");
-    for (int i = 0; i < l->tamanho; i++) {
-        printf("%d) %s  | Nivel: %d | Dado:%d | Iniciativa:%d\n",
-               i, l->vet[i].nome, l->vet[i].nivel,
-               l->vet[i].dado, l->vet[i].iniciativa);
-    }
-}
-
-
 void destruirLista(Lista *l) {
     free(l->vet);
     l->vet = NULL;
