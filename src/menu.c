@@ -1,10 +1,12 @@
 #include "menu.h"
+#include "lista.h"
+#include "personagens.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
 
-void leitor_arquivo(char* caminho) {
+void leitor_arquivo(char* caminho, Lista* lista) {
    FILE* arquivo = fopen(caminho, "r");
     if (!arquivo) {
         perror("Erro ao abrir arquivo");
@@ -29,7 +31,11 @@ void leitor_arquivo(char* caminho) {
             int nivel = atoi(nivel);
             int dado = atoi(dado);
 
-
+            Personagem* p = criar_personagem(nome, nivel, dado);
+            if (p != NULL) {
+                adicionarPersonagem(lista, *p);
+                free(p);
+            }
 
             conjunto = strtok(NULL, ";");
         }
@@ -37,5 +43,3 @@ void leitor_arquivo(char* caminho) {
 
     fclose(arquivo);
 }
-
-
