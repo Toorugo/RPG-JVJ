@@ -17,10 +17,10 @@ void mostrar(char** m, int a){
     system("clear");
     for(int y = 0;y < a; y++){
         for(int x = 0;x < largura;x++){
-                if(y < 5) printf(VERDE"\e[?25l%c", m[y][x]);
-                else if(y >=15  && y <= 37) printf(AZUL"\e[?25l%c", m[y][x]);
-                else if(y > 37 && y <= 50) printf(AMARELO"\e[?25l%c", m[y][x]);
-                else printf(VERMELHO"\e[?25l%c", m[y][x]); 
+                if(y < 5) printf(VERDE"\e[?25l%c"RESET, m[y][x]);
+                else if(y >=15  && y <= 37) printf(AZUL"\e[?25l%c"RESET, m[y][x]);
+                else if(y > 37 && y <= 50) printf(AMARELO"\e[?25l%c"RESET, m[y][x]);
+                else printf(VERMELHO"\e[?25l%c"RESET, m[y][x]); 
         }
         puts("");
     }
