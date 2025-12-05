@@ -5,7 +5,7 @@
 #include "personagens.h"
 #include "impressao.h"
 
-Lista menu();
-void leitor_arquivo(char* );
+Lista menu(int* );
+void leitor_arquivo(char*);
 
 #endif

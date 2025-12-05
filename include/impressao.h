@@ -7,8 +7,8 @@ typedef struct _menu{
     int y;
 } me;
 
-void mostrar(char** );
-void renderizar_menu(me );
-void renderizar_partida(int* );
+void mostrar(char** , int);
+me cria_menu();
+void mostra_partida(Lista );
 
 #endif

@@ -1,7 +1,7 @@
 #include "tudojunto.h"
 
 int main(){
-    int resposta;
+    int resposta=1;
     do{
         Lista personagens = menu(&resposta);
         if(resposta)partida(personagens, &resposta);
