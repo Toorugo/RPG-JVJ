@@ -6,8 +6,9 @@
 #include <stdbool.h>
 #include <string.h>
 
-void leitor_arquivo(char* caminho, Lista* lista) {
-   FILE* arquivo = fopen(caminho, "r");
+Lista* leitor_arquivo(char* caminho) {
+    Lista* lista;
+    FILE* arquivo = fopen(caminho, "r");
     if (!arquivo) {
         perror("Erro ao abrir arquivo");
         return;
@@ -42,4 +43,37 @@ void leitor_arquivo(char* caminho, Lista* lista) {
     }
 
     fclose(arquivo);
+    return lista;
+}
+
+Lista* criar_bonecos(){
+    system("clear");
+    puts("Digite o endereço do arquivo .txt com os personagens");
+    char* endereco;
+    scanf("%s", &endereco);
+    return leitor_arquivo(endereco);
+}
+
+Lista* menu(int* resposta){
+    me tela = cria_menu();
+    while(true){
+        mostra(tela.tela, 20);
+
+        char entrada = getch();
+
+        if(entrada == "m" || entrada== "M"){
+
+            if(tela.y == 7) tela.y = tela.y+3;
+            else tela.y = tela.y-3;
+        }
+
+        else if(entrada == "c" || entrada == "C"){
+
+            if(tela.y==7) return criar_bonecos();
+            else {
+                *resposta = 0;
+                return;
+            }
+        }
+    }
 }
