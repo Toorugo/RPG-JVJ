@@ -4,7 +4,7 @@
 #include "impressao.h"
 #include "lista.h"
 
-#define altura 20
+#define altura 9
 #define largura 60
 #define AMARELO "\x1B[33m"
 #define VERMELHO "\x1B[31m"
@@ -29,7 +29,7 @@ void mostrar(char** m, int a){
 me cria_menu(){
     me t;
     t.x=8;
-    t.y=7;
+    t.y=2;
     t.tela = (char**) malloc(altura*sizeof(char*));
     for(int a=0; a<altura; a++) t.tela[a] = (char*) malloc(largura*sizeof(char));
 
@@ -37,8 +37,9 @@ me cria_menu(){
 
     for(int a=1; a<altura-1; a++){
         for(int l=0; l<largura; l++){
-            if(l==0 || l==largura-1) t.tela[a][l]='+';
+            if(l==0 || l==1) t.tela[a][l]='+';
             if(t.x==l && t.y==a) t.tela[a][l]='>';
+            else t.tela[a][l] = ' ';
         }
     }
 
@@ -46,19 +47,20 @@ me cria_menu(){
 
     
     char* definir = "DEFINIR PERSONAGENS";
-    for(int i=10; i<29; i++) t.tela[7][i] = definir[i-10];
+    for(int i=10; i<29; i++) t.tela[2][i] = definir[i-10];
     char* sair = "SAIR";
-    for(int i=10; i<14; i++) t.tela[10][i] = sair[i-10];
+    for(int i=10; i<14; i++) t.tela[5][i] = sair[i-10];
 
     return t;
 }
 
 void mostra_partida(Lista* p){
     for(int l=0; l<largura; l++) printf(VERMELHO"@");
-    printf("\n");
+    puts("");
     for(int a=0; a<p->tamanho; a++){
         printf(AZUL"&  %s - nivel:%i - dado:%i - iniciativa:%i\n", p->vet[a].nome, p->vet[a].nivel, p->vet[a].dado, p->vet[a].iniciativa);
     }
 
     for(int l=0; l<largura; l++) printf(VERMELHO"@");
+    puts("");
 }

@@ -49,7 +49,7 @@ Lista* leitor_arquivo(char* caminho) {
 
 Lista* criar_bonecos(){
     system("clear");
-    puts("Digite o endereço do arquivo .txt com os personagens");
+    puts("Digite o endereço do arquivo .txt com os personagens:");
     char endereco[100];
     scanf("%99s", endereco);
     return leitor_arquivo(endereco);
@@ -64,8 +64,16 @@ Lista* menu(int* resposta){
 
         if(entrada == 'm' || entrada== 'M'){
 
-            if(tela.y == 7) tela.y = tela.y+3;
-            else tela.y = tela.y-3;
+            if(tela.y == 2) {
+                tela.tela[tela.y][8] = " ";
+                tela.y = tela.y+3;
+                tela.tela[tela.y][8] = ">";
+            }
+            else{
+                tela.tela[tela.y][8] = " ";
+                tela.y = tela.y-3;
+                tela.tela[tela.y][8] = ">";
+            }
         }
 
         else if(entrada == 'c' || entrada == 'C'){
