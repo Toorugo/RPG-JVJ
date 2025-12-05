@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <string.h>
 
-void leitor_arquivo(char* caminho, Lista* lista) {
+void leitor_arquivo(char* caminho) {
    FILE* arquivo = fopen(caminho, "r");
     if (!arquivo) {
         perror("Erro ao abrir arquivo");
