@@ -78,7 +78,7 @@ Lista* menu(int* resposta){
 
         else if(entrada == 'c' || entrada == 'C'){
 
-            if(tela.y==7){
+            if(tela.y==2){
                 destroi_menu(tela.tela); 
                 return criar_bonecos();
             }
